@@ -1,4 +1,4 @@
-package Symetric;
+package Classic;
 
 public class Rotator {
     private final int ALPHABET_SIZE = 26;

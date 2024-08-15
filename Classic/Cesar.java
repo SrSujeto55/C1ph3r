@@ -1,4 +1,4 @@
-package Symetric;
+package Classic;
 
 public class Cesar {
     Rotator rotator;

@@ -4,7 +4,13 @@ import java.util.HashMap;
 
 public class CoincidenceAnalizer {
 
-    public static double analize(String text){
+    /*
+     * This method analize the coincidence index of a given text
+     * @param text The text to analize
+     * @param freadman If true, the method will return the aproximate number of alphabets used
+     * @return The coincidence index of the text
+     */
+    public static double analize(String text, boolean friedman){
         text = text.toLowerCase().strip()
                    .replaceAll("[^a-zñ]", "")
                    .replaceAll("[áàäâ]", "a")
@@ -29,11 +35,17 @@ public class CoincidenceAnalizer {
             System.out.println(c + " : " + frequency); //! Debug purposes
             coincidenceIndex += (frequency * (frequency - 1));
         }
-        System.out.println("-------------------------------------------"); //! Debug purposes
+        System.out.println("---------------Frequency Map---------------\n"); //! Debug purposes
 
         coincidenceIndex /= ((double)text.length() * ((double)text.length() - 1));
+        System.out.println("---------------Text Data---------------"); //! Debug purposes
         System.out.println("Text length: " + text.length()); //! Debug purposes
         System.out.println("CoicidenceIndex : " + coincidenceIndex); //! Debug purposes
+
+        if(friedman){
+            System.out.println("Aproximate number of alphabets used : " + Friedman.spanishTest(coincidenceIndex));
+        }
+        System.out.println("---------------Text Data---------------\n"); //! Debug purposes
 
         return coincidenceIndex;
     }

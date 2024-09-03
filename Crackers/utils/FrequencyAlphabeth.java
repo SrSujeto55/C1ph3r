@@ -12,7 +12,7 @@ public class FrequencyAlphabeth {
      * @param text The text to be analyzed
      * @return List<Map.Entry<Character, Integer>> A list of the frequency of each character in the text in order
      */
-    public static List<Map.Entry<Character, Integer>> frequecyList(String text){
+    public static List<Map.Entry<Character, Integer>> frequecyList(String text, boolean verbose){
         HashMap<Character, Integer> frequencyMap = new HashMap<>();
         char[] textArray = text.toCharArray();
 
@@ -30,8 +30,10 @@ public class FrequencyAlphabeth {
         orderedFrequencyList.sort((e1, e2) -> e2.getValue().compareTo(e1.getValue())); 
 
         //Prints the ordered frequency list
-        for (Map.Entry<Character,Integer> entry : orderedFrequencyList) {
-            System.out.println(entry.getKey() + " : " + entry.getValue());
+        if(verbose){
+            for (Map.Entry<Character,Integer> entry : orderedFrequencyList) {
+                System.out.println(entry.getKey() + " : " + entry.getValue());
+            }
         }
 
         return orderedFrequencyList;
@@ -42,7 +44,7 @@ public class FrequencyAlphabeth {
      * @param text The text to be analyzed
      * @return Map.Entry<Character, Integer> the pair key value of the most common letter in the text
      */
-    public static Map.Entry<Character, Integer> frequencyFirst(String text){
+    public static Map.Entry<Character, Integer> frequencyFirst(String text, boolean verbose){
         HashMap<Character, Integer> frequencyMap = new HashMap<>();
         char[] textArray = text.toCharArray();
 
@@ -60,7 +62,9 @@ public class FrequencyAlphabeth {
         orderedFrequencyList.sort((e1, e2) -> e2.getValue().compareTo(e1.getValue())); 
 
         //Prints the first element of the ordered frequency list
-        System.out.println(orderedFrequencyList.get(0).getKey() + " : " + orderedFrequencyList.get(0).getValue());
+        if (verbose) {
+            System.out.println(orderedFrequencyList.get(0).getKey() + " : " + orderedFrequencyList.get(0).getValue());
+        }
 
         return orderedFrequencyList.get(0);
     }
@@ -70,7 +74,7 @@ public class FrequencyAlphabeth {
      * @param text The text to be analyzed
      * @return List<Map.Entry<Character, Integer>> A list of the frequency of each character in the text in order
      */
-    public static void frequencyThree(String text){
+    public static void frequencyThree(String text, boolean verbose){
         HashMap<Character, Integer> frequencyMap = new HashMap<>();
         char[] textArray = text.toCharArray();
 
@@ -88,8 +92,10 @@ public class FrequencyAlphabeth {
         orderedFrequencyList.sort((e1, e2) -> e2.getValue().compareTo(e1.getValue())); 
 
         //Prints the firsts 3 elements of the ordered frequency list
-        for (int i = 0; i < 3; i++) {
-            System.out.println(orderedFrequencyList.get(i).getKey() + " : " + orderedFrequencyList.get(i).getValue());
+        if (verbose) {
+            for (int i = 0; i < 3; i++) {
+                System.out.println(orderedFrequencyList.get(i).getKey() + " : " + orderedFrequencyList.get(i).getValue());
+            }
         }
     }
 }

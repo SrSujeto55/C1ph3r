@@ -1,10 +1,12 @@
-package Classic;
+package Ciphers;
+
+import Ciphers.utils.Rotator;
 
 public class Cesar {
     Rotator rotator;
 
     public Cesar(int displacement){
-        rotator = new Rotator(displacement % 26, 1);
+        rotator = new Rotator(displacement % 26);
     }
 
     public String encrypt(String param) {

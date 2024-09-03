@@ -1,15 +1,13 @@
-package Classic;
+package Ciphers.utils;
 
 public class Rotator {
     private final int ALPHABET_SIZE = 26;
     private final int ALPHABET_START = 97;
     private final int ALPHABET_END = 122;
     private int displacement;
-    private int jumps;
 
-    public Rotator(int displacement, int jumps){
+    public Rotator(int displacement){
         this.displacement = displacement % 26;
-        this.jumps = jumps;
     }
 
     public String simpleRotateText(char[] plainText){

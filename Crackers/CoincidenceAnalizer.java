@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class CoincidenceAnalizer {
 
-    public void analize(String text){
+    public double analize(String text){
         text = text.toLowerCase().strip()
                    .replaceAll("[^a-zñ]", "")
                    .replaceAll("[áàäâ]", "a")
@@ -34,5 +34,7 @@ public class CoincidenceAnalizer {
         coincidenceIndex /= ((double)text.length() * ((double)text.length() - 1));
         System.out.println("Text length: " + text.length()); //! Debug purposes
         System.out.println("CoicidenceIndex : " + coincidenceIndex); //! Debug purposes
+
+        return coincidenceIndex;
     }
 }

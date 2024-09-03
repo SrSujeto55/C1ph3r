@@ -12,7 +12,7 @@ public class FrequencyAlphabeth {
      * @param text The text to be analyzed
      * @return List<Map.Entry<Character, Integer>> A list of the frequency of each character in the text in order
      */
-    public List<Map.Entry<Character, Integer>> frequecyList(String text){
+    public static List<Map.Entry<Character, Integer>> frequecyList(String text){
         HashMap<Character, Integer> frequencyMap = new HashMap<>();
         char[] textArray = text.toCharArray();
 
@@ -38,11 +38,11 @@ public class FrequencyAlphabeth {
     }
 
     /*
-     * This method receives a text and returns a list of the frequency of each character in the text in order
+     * This method receives a text and returns the pair <key, value> of the most common letter in the text, 
      * @param text The text to be analyzed
-     * @return List<Map.Entry<Character, Integer>> A list of the frequency of each character in the text in order
+     * @return Map.Entry<Character, Integer> the pair key value of the most common letter in the text
      */
-    public Map.Entry<Character, Integer> frequencyFirst(String text){
+    public static Map.Entry<Character, Integer> frequencyFirst(String text){
         HashMap<Character, Integer> frequencyMap = new HashMap<>();
         char[] textArray = text.toCharArray();
 
@@ -66,11 +66,11 @@ public class FrequencyAlphabeth {
     }
 
     /*
-     * This method receives a text and returns a list of the frequency of each character in the text in order
+     * This method receives a text and prints the 3 most common letters in the text in order
      * @param text The text to be analyzed
      * @return List<Map.Entry<Character, Integer>> A list of the frequency of each character in the text in order
      */
-    public Map.Entry<Character, Integer> frequencyThree(String text){
+    public static void frequencyThree(String text){
         HashMap<Character, Integer> frequencyMap = new HashMap<>();
         char[] textArray = text.toCharArray();
 
@@ -87,11 +87,9 @@ public class FrequencyAlphabeth {
         List<Map.Entry<Character, Integer>> orderedFrequencyList = new ArrayList<>(frequencyMap.entrySet());
         orderedFrequencyList.sort((e1, e2) -> e2.getValue().compareTo(e1.getValue())); 
 
-        //Prints the first element of the ordered frequency list
+        //Prints the firsts 3 elements of the ordered frequency list
         for (int i = 0; i < 3; i++) {
             System.out.println(orderedFrequencyList.get(i).getKey() + " : " + orderedFrequencyList.get(i).getValue());
         }
-
-        return orderedFrequencyList.get(0);
     }
 }

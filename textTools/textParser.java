@@ -1,28 +1,23 @@
+package textTools;
 import java.io.*;
 
 public class textParser {
-    private BufferedReader br;
-    public textParser(String path){
-        try{
-            File file = new File(path);
-            if (!file.exists()){
-                System.out.println("File not found");
-                return;
-            }
-            br = new BufferedReader(new FileReader(file));
-        }catch (FileNotFoundException e){
-            e.printStackTrace();
-        }
-
-    }
-
-    public String getText(){
+    public static String getText(String Path){
+        BufferedReader br;
         String text = "";
         try{
+            File file = new File(Path);
+            if (!file.exists()){
+                System.out.println("File not found");
+                return "";
+            }
+            br = new BufferedReader(new FileReader(file));
             String line;
             while ((line = br.readLine()) != null){
                 text += line + "\n";
             }
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
         }catch (IOException e){
             e.printStackTrace();
         }

@@ -1,4 +1,4 @@
-package polialphabetic;
+package Ciphers;
 
 public class Viguenere {
     private static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

@@ -1,10 +1,10 @@
-package Crackers;
+package Crackers.utils;
 
 import java.util.HashMap;
 
 public class CoincidenceAnalizer {
 
-    public double analize(String text){
+    public static double analize(String text){
         text = text.toLowerCase().strip()
                    .replaceAll("[^a-zñ]", "")
                    .replaceAll("[áàäâ]", "a")

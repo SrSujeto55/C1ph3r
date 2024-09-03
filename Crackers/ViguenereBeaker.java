@@ -3,21 +3,21 @@ package Crackers;
 import Crackers.utils.FrequencyAlphabeth;
 
 public class ViguenereBeaker {
-    public void alphaberAnalizer(int keyLength, String text){
+    public static void alphaberAnalizer(int keyLength, String text){
         text = text.toLowerCase().strip();
         text = text.replaceAll(" ", "")
                     .replaceAll("\\s+", "");
         char[] textArray = text.toCharArray();
-        String[] keyStrings = new String[keyLength];
+        StringBuilder[] keyStrings = new StringBuilder[keyLength];
 
         // Initialize the array of strings, each string is one alphabeth acording to a keychar position
         for (int i = 0; i < keyLength; i++) {
-            keyStrings[i] = "";
+            keyStrings[i] = new StringBuilder();
         }
 
         // Fill the strings with the characters of the text
         for (int i = 0; i < textArray.length; i++) {
-            keyStrings[i % keyLength] += textArray[i];
+            keyStrings[i % keyLength].append(textArray[i]);
         }
 
         // Print the strings
@@ -28,7 +28,7 @@ public class ViguenereBeaker {
         // Print the frequency of each character in each string
         for (int i = 0; i < keyLength; i++) {
             System.out.println("Frequency of alphabet " + (i + 1) + ": ");
-            new FrequencyAlphabeth().frequencyThree(keyStrings[i]);
+            FrequencyAlphabeth.frequencyThree(keyStrings[i].toString());
         }
     }
 }

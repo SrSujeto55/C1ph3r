@@ -1,15 +1,25 @@
 // import Classic.Cesar;
 // import Crackers.FrequencyAnalyzer;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 import Ciphers.Viguenere;
 import Crackers.FrequencyAnalyzer;
 import Crackers.ViguenereBeaker;
+import Crackers.utils.CharKeyGen;
 import Crackers.utils.CoincidenceAnalizer;
 import Crackers.utils.FrequencyAlphabeth;
+import Crackers.utils.Friedman;
 import textTools.textParser;
 
 public class Main {
     public static void main(String[] args) {
+        if (args.length < 1) {
+            System.out.println("Usage: java Main <file>");
+            return;
+        }
+        
         // // Cesar example
         // Cesar cesar = new Cesar(1);   
         // String text = "Hello World";
@@ -24,15 +34,15 @@ public class Main {
 
         // // Coicidence Index
         // CoincidenceAnalizer coincidenceAnalizer = new CoincidenceAnalizer();
-        // coincidenceAnalizer.analize(new textParser("text.txt").getText());
+        // coincidenceAnalizer.analize(textParser.getText("text.txt"));
 
         // FrequencyAlphabeth fas = new FrequencyAlphabeth();
         // fas.frequecyList(text);
 
-        // // Viguenere Beaker
-        // String text = textParser.getText("TextExamples\\viguenere.txt");
-        // ViguenereBeaker.alphaberAnalizer(10, text);
-        // System.out.println(Viguenere.decrypt(text, "SUNTZARTEG"));
+        // Viguenere Beaker Example
+        String text = textParser.getText(args[0]);
+        ViguenereBeaker viguenereBeaker = new ViguenereBeaker();
+        viguenereBeaker.breakKey(text);
 
     }
 }

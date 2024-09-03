@@ -17,7 +17,7 @@ public class FrequencyAnalyzer {
 
     public static String replaceText(String text, char[] frequencyAlphabeth){
         text = text.toLowerCase().strip();
-        List<Map.Entry<Character, Integer>> frequencyMap = FrequencyAlphabeth.frequecyList(text);
+        List<Map.Entry<Character, Integer>> frequencyMap = FrequencyAlphabeth.frequecyList(text, false);
         HashMap<Character, Character> relationMap = relateMaps(frequencyMap, frequencyAlphabeth);
         char[] textArray = text.toCharArray();
 

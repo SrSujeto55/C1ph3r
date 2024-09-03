@@ -9,7 +9,7 @@ public class textParser {
             File file = new File(Path);
             if (!file.exists()){
                 System.out.println("File not found");
-                return "";
+                System.exit(0);
             }
             br = new BufferedReader(new FileReader(file));
             String line;

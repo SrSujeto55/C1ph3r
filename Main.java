@@ -5,6 +5,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import Ciphers.Viguenere;
+import Ciphers.Afin;
+import Crackers.AfinBrute;
 import Crackers.FrequencyAnalyzer;
 import Crackers.ViguenereBeaker;
 import Crackers.utils.CharKeyGen;
@@ -15,10 +17,10 @@ import textTools.textParser;
 
 public class Main {
     public static void main(String[] args) {
-        if (args.length < 1) {
-            System.out.println("Usage: java Main <file>");
-            return;
-        }
+        // if (args.length < 1) {
+        //     System.out.println("Usage: java Main <file>");
+        //     return;
+        // }
         
         // // Cesar example
         // Cesar cesar = new Cesar(1);   
@@ -39,10 +41,19 @@ public class Main {
         // FrequencyAlphabeth fas = new FrequencyAlphabeth();
         // fas.frequecyList(text);
 
-        // Viguenere Beaker Example
-        String text = textParser.getText(args[0]);
-        ViguenereBeaker viguenereBeaker = new ViguenereBeaker();
-        viguenereBeaker.breakKey(text);
+        // // Viguenere Beaker Example
+        // String text = textParser.getText(args[0]);
+        // ViguenereBeaker viguenereBeaker = new ViguenereBeaker();
+        // viguenereBeaker.breakKey(text);
+
+        // Afin example
+        String text = Afin.encrypt(5, 7, textParser.getText("TextExamples/RuidoVisual.txt"), true);
+        System.out.println(text);
+        System.out.println("-----------------------------------------------");
+        System.out.println(Afin.decrypt(11, 7, text, false, true));
+
+        // // Afin Brute example
+        // AfinBrute.force(textParser.getText("TextExamples/afin.txt"), 27);
 
     }
 }

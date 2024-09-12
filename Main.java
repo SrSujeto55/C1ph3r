@@ -7,6 +7,7 @@ import java.util.Scanner;
 import Ciphers.Viguenere;
 import Ciphers.utils.MatrixMod;
 import Ciphers.Afin;
+import Ciphers.Hill;
 import Crackers.AfinBrute;
 import Crackers.FrequencyAnalyzer;
 import Crackers.ViguenereBeaker;
@@ -70,23 +71,28 @@ public class Main {
         // mod), 2);
 
 
-        for (int i = 0; i < mod; i++) {
-            for (int j = 0; j < mod; j++) {
-                for (int k = 0; k < mod; k++) {
-                    for (int l = 0; l < mod; l++) {
-                        int[] A = { i, j, k, l };
-                        if (MatrixMod.isInvertible2x2(A, mod)) {
-                            System.out.println("-------------------------Invertible-------------------------");
-                            MatrixMod.print(A, 2);
-                            System.out.println("Determinant: " + MatrixMod.determinant2x2(A, mod));
-                            MatrixMod.print(MatrixMod.inverted2x2(A, mod), 2);
-                            System.out.println("Multiplication:");
-                            MatrixMod.print(MatrixMod.multiplyMod2x2(A, MatrixMod.inverted2x2(A, mod), mod), 2);
-                            System.out.println("-------------------------Invertible-------------------------");
-                        }
-                    }
-                }
-            }
-        }
+        // for (int i = 0; i < mod; i++) {
+        //     for (int j = 0; j < mod; j++) {
+        //         for (int k = 0; k < mod; k++) {
+        //             for (int l = 0; l < mod; l++) {
+        //                 int[] A = { i, j, k, l };
+        //                 if (MatrixMod.isInvertible2x2(A, mod)) {
+        //                     System.out.println("-------------------------Invertible-------------------------");
+        //                     MatrixMod.print(A, 2);
+        //                     System.out.println("Determinant: " + MatrixMod.determinant2x2(A, mod));
+        //                     MatrixMod.print(MatrixMod.inverted2x2(A, mod), 2);
+        //                     System.out.println("Multiplication:");
+        //                     MatrixMod.print(MatrixMod.multiplyMod2x2(A, MatrixMod.inverted2x2(A, mod), mod), 2);
+        //                     System.out.println("-------------------------Invertible-------------------------");
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
+
+        System.out.println(Hill.encrypt(textParser.getText("TextExamples/RuidoVisual.txt"), new int[]{9,4,5,7}));
+        System.out.println("Inverted Key: ");
+        MatrixMod.print(MatrixMod.inverted2x2(new int[]{9,4,5,7}, 27), 2);
+
     }
 }

@@ -12,6 +12,13 @@ public class MatrixMod {
         return result;
     }
 
+    public static int[] multiplyDigramMod2x2(int[] matrix, int[] digram, int mod){
+        int[] result = new int[2];
+        result[0] = (matrix[0] * digram[0] + matrix[1] * digram[1])%mod;
+        result[1] = (matrix[2] * digram[0] + matrix[3] * digram[1])%mod;
+        return result;
+    }
+
     public static int determinant2x2(int[] a, int mod){
         return (a[0] * a[3] - a[1] * a[2])%mod;
     }

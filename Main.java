@@ -10,6 +10,7 @@ import Ciphers.Afin;
 import Ciphers.Hill;
 import Crackers.AfinBrute;
 import Crackers.FrequencyAnalyzer;
+import Crackers.HillBrute;
 import Crackers.ViguenereBeaker;
 import Crackers.utils.CharKeyGen;
 import Crackers.utils.CoincidenceAnalizer;
@@ -90,9 +91,12 @@ public class Main {
         //     }
         // }
 
-        System.out.println(Hill.encrypt(textParser.getText("TextExamples/RuidoVisual.txt"), new int[]{9,4,5,7}));
-        System.out.println("Inverted Key: ");
-        MatrixMod.print(MatrixMod.inverted2x2(new int[]{9,4,5,7}, 27), 2);
+        // System.out.println(Hill.encrypt(textParser.getText("TextExamples/RuidoVisual.txt"), new int[]{9,4,5,7}, false));
+        // System.out.println("Inverted Key: ");
+        // MatrixMod.print(MatrixMod.inverted2x2(new int[]{9,4,5,7}, mod), 2);
+
+        // Hill brute Force attempt 1
+        HillBrute.force(textParser.getText("TextExamples/Hill.txt"));
 
     }
 }

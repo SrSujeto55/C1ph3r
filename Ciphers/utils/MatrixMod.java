@@ -52,4 +52,14 @@ public class MatrixMod {
         }
         return "";
     }
+
+    public static String print(char[][] a){
+        for(char[] row : a){
+            for(char c : row){
+                System.out.print(c + " ");
+            }
+            System.out.println();
+        }
+        return "";
+    }
 }

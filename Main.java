@@ -8,6 +8,7 @@ import Ciphers.Viguenere;
 import Ciphers.utils.MatrixMod;
 import Ciphers.Afin;
 import Ciphers.Hill;
+import Ciphers.Playfair;
 import Crackers.AfinBrute;
 import Crackers.FrequencyAnalyzer;
 import Crackers.HillBrute;
@@ -24,6 +25,8 @@ public class Main {
         // System.out.println("Usage: java Main <file>");
         // return;
         // }
+
+        int mod = 27;
 
         // // Cesar example
         // Cesar cesar = new Cesar(1);
@@ -62,15 +65,13 @@ public class Main {
         // // Afin Brute example
         // AfinBrute.force(textParser.getText("TextExamples/afin.txt"), 27);
 
-        // Hill Examples
-        int mod = 26;
+        // // Hill Examples
         // int[] A = {9,4,5,7};
         // System.out.println(MatrixMod.determinant2x2(A, mod));
         // System.out.println(MatrixMod.isInvertible2x2(A, mod));
         // MatrixMod.print(MatrixMod.inverted2x2(A, mod), 2);
         // MatrixMod.print(MatrixMod.multiplyMod2x2(A, MatrixMod.inverted2x2(A, mod),
         // mod), 2);
-
 
         // for (int i = 0; i < mod; i++) {
         //     for (int j = 0; j < mod; j++) {
@@ -95,8 +96,19 @@ public class Main {
         // System.out.println("Inverted Key: ");
         // MatrixMod.print(MatrixMod.inverted2x2(new int[]{9,4,5,7}, mod), 2);
 
-        // Hill brute Force attempt 1
-        HillBrute.force(textParser.getText("TextExamples/Hill.txt"));
+        // // Hill brute Force attempt 1
+        // HillBrute.force(textParser.getText("TextExamples/Hill.txt"));
+
+        // char[][] table = Playfair.generateAlphabethTable("chocolate");
+        // MatrixMod.print(table);
+
+        // // Playfair example
+        // System.out.println(Playfair.encrypt(textParser.getText("TextExamples\\RuidoVisual.txt"), "chocolate"));
+        // System.out.println(Playfair.decrypt(Playfair.encrypt(textParser.getText("TextExamples\\RuidoVisual.txt"), "chocolate"), "chocolate"));
+
+        // // Playfair decrypt example
+        // char[][] key = {{'N', 'I', 'C', 'O', 'L'}, {'A', 'S', 'M', 'Q', 'V'}, {'E', 'B', 'D', 'F', 'G'}, {'H', 'J', 'K', 'P', 'R'}, {'T', 'U', 'X', 'Y', 'Z'}};
+        // System.out.println(Playfair.decrypt(textParser.getText("TextExamples\\Playfair.txt"), key));
 
     }
 }
